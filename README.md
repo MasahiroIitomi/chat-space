@@ -12,14 +12,14 @@
 - has_many :members
 
 
-### groupテーブル
+### groupsテーブル
 |Column|type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
 
 ### Association
 - has_many :users, through: :members
-- has_many :group_users
+- has_many :members
 
 
 ## membersテーブル
