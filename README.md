@@ -10,9 +10,10 @@
 ### Association
 - has_many :groups, through: :members
 - has_many :members
+- accepts_nested_attributes_for :members
 
 
-### groupsテーブル
+## groupsテーブル
 |Column|type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
@@ -31,3 +32,4 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+- accepts_nested_attributes_for :members
