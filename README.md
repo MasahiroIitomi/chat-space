@@ -10,7 +10,7 @@
 ### Association
 - has_many :groups, through: :members
 - has_many :members
-- accepts_nested_attributes_for :members
+- has_many :messages
 
 
 ## groupsテーブル
@@ -21,6 +21,7 @@
 ### Association
 - has_many :users, through: :members
 - has_many :members
+- has_many :messages
 
 
 ## membersテーブル
@@ -32,4 +33,16 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
-- accepts_nested_attributes_for :members
+
+
+## messagesテーブル
+|Column|type|Options|
+|------|----|-------|
+|body|text|null; false|
+|image|string| |
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
