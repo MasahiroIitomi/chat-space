@@ -1,6 +1,7 @@
 @import "reset";
 @import "./config/variable";
 @import "./mixin/mixin";
+@import "font-awesome";
 
 .clear{
   clear: both;
@@ -11,6 +12,20 @@
   background-color: #38AEF0;
   text-align: center;
   display:none;
+}
+
+.side-icons{
+  float:right;
+  &__icon{
+    float:left;
+    color:white;
+      .pencil-icon{
+        padding-right:10px;
+      }
+      .cog-icon{
+        padding-right:20px;
+      }
+  }
 }
 
 .sidebar {
@@ -29,6 +44,7 @@
     line-height:100px;
     h3{
       padding-left: 20px;
+      float:left;
     }
   }
   .group {
@@ -45,10 +61,6 @@
   }
 }
 
-.clear {
-  clear:left;
-}
-
 .chat {
   width: calc(100vw - 300px);
   float:right;
@@ -57,7 +69,7 @@
   .header {
     position:fixed;
     padding:0 40px;
-    width:100%;
+    width: calc(100% - 340px);
     height:100px;
     background-color:white;
 
@@ -77,10 +89,19 @@
     }
     .header-right {
       float:right;
-      margin-top:28px;
-      a {
-        color:blue;
+      margin:28px 40px 0 0;
+      &__edit {
+        a {
+          &:link {
+            text-decoration: none;
+          }
+        }
+        color:$lightblue;
         display:inline-block;
+        line-height:40px;
+        padding:0 20px;
+        border:1px solid $lightblue;
+        text-decoration: none;
       }
     }
   }
@@ -92,7 +113,7 @@
       .upper-message{
         padding-bottom:10px;
         @include clearfix;
-        &__user_name{
+        &__user-name{
           float:left;
           color:$messagecolor;
           font-size:16px;
@@ -100,8 +121,9 @@
         }
         &__date {
           color:#999999;
-          font-size:12px;
+          font-size:14px;
           float:left;
+          padding-left:10px;
         }
       }
       .lower-message {
@@ -115,11 +137,39 @@
     background-color:#DDDDDD;
     position:fixed;
     bottom:0px;
-    width:100%;
+    width:calc(100% - 300px);
     height:90px;
     .form-wrapper{
       padding:20px 40px 20px 40px;
-
+      .text-input{
+        padding-left:10px;
+        line-height: 50px;
+        font-size:16px;
+        color:#434A54;
+        float:left;
+        border-width: 0;
+        width:calc(100% - 150px);
+      }
+      .image-icon {
+        display: inline-block;
+        float:left;
+        background-color:white;
+        line-height:50px;
+        padding-right:10px;
+        .image-input {
+          display:none;
+        }
+      }
+      .send-btn{
+        display:inline-block;
+        height:50px;
+        background-color:$lightblue;
+        float:left;
+        color:white;
+        border-width:0;
+        padding:0 30px;
+        margin-left:15px;
+      }
     }
   }
 }

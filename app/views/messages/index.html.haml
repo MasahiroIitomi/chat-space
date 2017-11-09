@@ -4,9 +4,15 @@
   .sidebar
     .header
       %h3 アカウント名
-      %ul
-        %li
-        %li
+      %ul.side-icons
+        %li.side-icons__icon
+          .pencil-icon
+            =link_to "#", class: "pencil-link" do
+              =fa_icon "pencil-square-o"
+        %li.side-icons__icon
+          .cog-icon
+            =link_to "#", class: "cog" do
+              =fa_icon "cog"
     .group
       =render partial: "group"
   .chat
@@ -16,20 +22,20 @@
           %h4 グループ名
         .header-left__members
           %p メンバー名
-        .clear
       .header-right
         .header-right__edit
-          %a Edit
+          =link_to "Edit"
     .messages
       .message
         .upper-message
           .upper-message__user-name ユーザー名
-          .upper-message__date Date
+          .upper-message__date yyyy/mm/dd
         .lower-message__content text
     .form
       .form-wrapper
         %form
-          %input{type: "text", placeholder: " type a message"}
-          %input{type: "file", title: ""}
-          %input{type: "submit", value:"Send"}
-
+          %input{type: "text", placeholder: " type a message", class: "text-input"}
+          %label.image-icon
+            =fa_icon "picture-o"
+            %input{type: "file", title: "", class: "image-input"}
+          %input{type: "submit", value:"Send", class: "send-btn"}
