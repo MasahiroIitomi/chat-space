@@ -8,10 +8,7 @@
         %li
         %li
     .group
-      .group__name
-        %p グループ名
-      .group__message
-        %p メッセージ
+      =render partial: "group"
   .chat
     .header
       .header-left
@@ -19,7 +16,20 @@
           %h4 グループ名
         .header-left__members
           %p メンバー名
+        .clear
       .header-right
+        .header-right__edit
+          %a Edit
     .messages
       .message
+        .upper-message
+          .upper-message__user-name ユーザー名
+          .upper-message__date Date
+        .lower-message__content text
     .form
+      .form-wrapper
+        %form
+          %input{type: "text", placeholder: " type a message"}
+          %input{type: "file", title: ""}
+          %input{type: "submit", value:"Send"}
+
