@@ -11,7 +11,7 @@
               =fa_icon "pencil-square-o"
         %li.side-icons__icon
           .cog-icon
-            =link_to "#", class: "cog" do
+            =link_to "#", class: "cog-link" do
               =fa_icon "cog"
     .group
       =render partial: "group"
@@ -24,7 +24,7 @@
           %p メンバー名
       .header-right
         .header-right__edit
-          =link_to "Edit"
+          =link_to "Edit", class: "edit-link"
     .messages
       =render partial: "message"
     .form

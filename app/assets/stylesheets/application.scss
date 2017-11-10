@@ -14,6 +14,7 @@
   display:none;
 }
 
+
 .side-icons{
   float:right;
   &__icon{
@@ -21,9 +22,15 @@
     color:white;
       .pencil-icon{
         padding-right:10px;
+        .pencil-link{
+          color:white;
+        }
       }
       .cog-icon{
         padding-right:20px;
+        .cog-link{
+          color:white;
+        }
       }
   }
 }
@@ -92,6 +99,7 @@
       margin:28px 40px 0 0;
       &__edit {
         a {
+          color:$lightblue;
           &:link {
             text-decoration: none;
           }
