@@ -4,8 +4,7 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    redirect_to "/"
   end
-
 
 end
