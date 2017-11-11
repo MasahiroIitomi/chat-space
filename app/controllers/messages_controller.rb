@@ -7,6 +7,6 @@ class MessagesController < ApplicationController
 
   private
   def move_to_signup
-    redirect_to "/images/screenshot.jpg" unless user_signed_in?
+    redirect_to "/users/sign_up" unless user_signed_in?
   end
 end
