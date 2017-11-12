@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :move_to_signin, only: :edit
-
   def edit
   end
 
@@ -16,10 +14,6 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email)
-  end
-
-  def move_to_signin
-    redirect_to "/users/sign_in" unless user_signed_in?
   end
 
 end
