@@ -1,6 +1,7 @@
 .group
   - current_user.groups.each do |group|
     .group__name
-      %p=group.name
+      =link_to group_messages_path(group) do
+        %p=group.name
     .group__message
       %p メッセージ
