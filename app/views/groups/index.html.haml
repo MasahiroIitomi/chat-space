@@ -1,5 +1,3 @@
-.notification
-  %p チャットグループが作成されました。
 .wrapper
   .sidebar
     .header
@@ -14,23 +12,3 @@
             =link_to edit_user_path(current_user), class: "cog-link" do
               =fa_icon "cog"
     =render partial: "group"
-  .chat
-    .header
-      .header-left
-        .header-left__group
-          %h4 グループ名
-        .header-left__members
-          %p メンバー名
-      .header-right
-        .header-right__edit
-          =link_to "Edit", class: "edit-link"
-    .messages
-      =render partial: "/messages/message"
-    .form
-      .form-wrapper
-        %form
-          %input{type: "text", placeholder: " type a message", class: "text-input"}
-          %label.image-icon
-            =fa_icon "picture-o"
-            %input{type: "file", title: "", class: "image-input"}
-          %input{type: "submit", value:"Send", class: "send-btn"}
