@@ -3,7 +3,7 @@
 .wrapper
   .sidebar
     .header
-      %h3 アカウント名
+      %h3=current_user.name
       %ul.side-icons
         %li.side-icons__icon
           .pencil-icon
@@ -13,8 +13,7 @@
           .cog-icon
             =link_to edit_user_path(current_user), class: "cog-link" do
               =fa_icon "cog"
-    .group
-      =render partial: "group"
+    =render partial: "group"
   .chat
     .header
       .header-left
@@ -26,7 +25,7 @@
         .header-right__edit
           =link_to "Edit", class: "edit-link"
     .messages
-      =render partial: "message"
+      =render partial: "/messages/message"
     .form
       .form-wrapper
         %form
