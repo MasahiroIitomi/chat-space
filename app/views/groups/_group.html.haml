@@ -1,0 +1,6 @@
+.group
+  - current_user.groups.each do |group|
+    .group__name
+      %p=group.name
+    .group__message
+      %p メッセージ
