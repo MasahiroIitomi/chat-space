@@ -5,7 +5,7 @@
       %ul.side-icons
         %li.side-icons__icon
           .pencil-icon
-            =link_to "#", class: "pencil-link" do
+            =link_to new_group_path, class: "pencil-link" do
               =fa_icon "pencil-square-o"
         %li.side-icons__icon
           .cog-icon
@@ -16,19 +16,23 @@
     .header
       .header-left
         .header-left__group
-          %h4 グループ名
+          %h4=@group.name
         .header-left__members
-          %p メンバー名
+          Member:
+          -@group.members.each do |member|
+            .header-left__members--name
+              =member.user.name
       .header-right
         .header-right__edit
-          =link_to "Edit", class: "edit-link"
+          =link_to "Edit",edit_group_path(@group), class: "edit-link"
     .messages
       =render partial: "message"
     .form
       .form-wrapper
-        %form
-          %input{type: "text", placeholder: " type a message", class: "text-input"}
-          %label.image-icon
-            =fa_icon "picture-o"
-            %input{type: "file", title: "", class: "image-input"}
-          %input{type: "submit", value:"Send", class: "send-btn"}
+        =form_for [@group, @message] do |f|
+          =f.text_field :body, placeholder: "type a message", class: "text-input"
+          .image-icon
+            =f.label :image do
+              =fa_icon "picture-o"
+              =f.file_field :image, class: "image-input"
+          = f.submit "Send", class: "send-btn"

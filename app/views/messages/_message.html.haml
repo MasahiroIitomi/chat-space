@@ -1,5 +1,12 @@
-.message
-  .upper-message
-    .upper-message__user-name ユーザー名
-    .upper-message__date yyyy/mm/dd
-  .lower-message__content text
+- @messages.each do |message|
+  .message
+    .upper-message
+      .upper-message__user-name
+        =message.user.name
+      .upper-message__date
+        =message.created_at
+    .lower-message__content
+      .lower-message__content--body
+        = message.body
+      .lower-message__content--image
+        = image_tag message.image.to_s

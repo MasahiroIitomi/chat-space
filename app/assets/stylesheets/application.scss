@@ -99,6 +99,15 @@
         padding-top:15px;
         font-size:12px;
         color:#999999;
+        float:left;
+        display:inline-block;
+        line-height:12px;
+        &--name{
+          padding-left:5px;
+          font-size:12px;
+          float:right;
+          display:inline-block;
+        }
       }
     }
     .header-right {
@@ -123,8 +132,9 @@
   .messages {
     padding:100px 40px 0 40px;
     background-color:#FAFAFA;
+    margin-bottom: 6px;
     .message {
-      padding:46px 0 40px 0;
+      padding-top: 40px;
       .upper-message{
         padding-bottom:10px;
         @include clearfix;
@@ -136,7 +146,7 @@
         }
         &__date {
           color:#999999;
-          font-size:14px;
+          font-size:12px;
           float:left;
           padding-left:10px;
         }
