@@ -6,18 +6,6 @@
 @import "flash";
 @import "groups";
 
-.clear{
-  clear: both;
-}
-
-.notification {
-  color:#FFFFFF;
-  background-color: #38AEF0;
-  text-align: center;
-  display:none;
-}
-
-
 .side-icons{
   float:right;
   &__icon{
@@ -45,7 +33,6 @@
   height:100vh;
   float:left;
   .header {
-    position:fixed;
     background-color:#253141;
     font-size:16px;
     font-weight:bold;
@@ -58,7 +45,9 @@
     }
   }
   .group {
-    padding:100px 20px 0px 20px;
+    height:calc(100vh - 100px);
+    padding:0 20px 0px 20px;
+    overflow: scroll;
     &__name {
       font-size:15px;
       padding-top:20px;
@@ -77,19 +66,15 @@
 
 .chat {
   width: calc(100vw - 300px);
-  float:right;
+  float:left;
   height:100vh;
   background-color:#FAFAFA;
   .header {
-    position:fixed;
-    padding:0 40px;
-    width: calc(100% - 340px);
+    width:100%;
     height:100px;
     background-color:white;
-
-    border-bottom: solid 1px #eeeeee;
     .header-left{
-      padding-top: 35px;
+      padding: 35px 0 0 40px;
       float:left;
       &__group {
         font-size: 20px;
@@ -112,7 +97,7 @@
     }
     .header-right {
       float:right;
-      margin:28px 40px 0 0;
+      padding:28px 40px 0 0;
       &__edit {
         a {
           color:$lightblue;
@@ -130,9 +115,10 @@
     }
   }
   .messages {
-    padding:100px 40px 0 40px;
+    padding:6px 40px 0 40px;
+    height:calc(100vh - 196px);
     background-color:#FAFAFA;
-    margin-bottom: 6px;
+    overflow:scroll;
     .message {
       padding-top: 40px;
       .upper-message{
@@ -160,9 +146,8 @@
 
   .form {
     background-color:#DDDDDD;
-    position:fixed;
     bottom:0px;
-    width:calc(100% - 300px);
+    width:100%;
     height:90px;
     .form-wrapper{
       padding:20px 40px 20px 40px;
