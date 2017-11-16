@@ -1,6 +1,14 @@
 .group
   - current_user.groups.each do |group|
     .group__name
-      %p=group.name
+      =link_to group_messages_path(group) do
+        %p=group.name
     .group__message
-      %p メッセージ
+      %p
+        -if group.messages.last
+          -if group.messages.last.image.present?
+            画像が投稿されています
+          -else
+            =group.messages.last.body
+        -else
+          まだメッセージはありません
