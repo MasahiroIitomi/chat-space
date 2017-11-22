@@ -29,7 +29,7 @@
       =render partial: "message"
     .form
       .form-wrapper
-        =form_for [@group, @message] do |f|
+        =form_for [@group, @message], html: {id: "comment_form"} do |f|
           =f.text_field :body, placeholder: "type a message", class: "text-input"
           .image-icon
             =f.label :image do
