@@ -29,6 +29,10 @@ $(function(){
 
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
+    var spaceInput = ' ';
+    if (input === spaceInput || input.length === 0){
+      return false;
+    }
     $.ajax({
       type: 'GET',
       url: '/users',
