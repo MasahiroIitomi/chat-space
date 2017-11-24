@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   def update
     if @group.update(group_params)
       flash[:notice] = "グループを編集しました"
-      redirect_to root_path
+      redirect_to group_messages_path(@group)
     else
       render :edit
     end
