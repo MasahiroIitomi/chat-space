@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${ message.user_name }
@@ -44,4 +44,32 @@ $(function(){
       alert('error');
     });
   });
+
+// メッセージの自動更新機能
+  var interval = setInterval(function(){
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      $.ajax({
+        url: location.href.json,
+        dataType: 'json',
+      })
+      .done(function(json){
+        var newestId = $('.message').last().data("message-id");
+        var appendHtml = '';
+        json.messages.forEach(function(message){
+          if (message.id > newestId) {
+            appendHtml += buildHTML(message);
+          }
+        });
+        $('.messages').append(appendHtml);
+        $(".messages").animate({
+          scrollTop: $(".messages")[0].scrollHeight
+        });
+      })
+      .fail(function(data){
+        alert('自動更新にエラーが起きました');
+      });
+    } else {
+      clearInterval(interval);
+    }
+  }, 5000);
 });
